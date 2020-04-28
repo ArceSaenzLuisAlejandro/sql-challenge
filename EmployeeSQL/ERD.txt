@@ -1,0 +1,47 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+Departments
+-
+dept_no PK int FK >- DepartmentEmployeer.dept_no
+dept_name string
+
+DepartmentEmployeer as DE
+-
+emp_no PK int FK >- Employees.emp_no
+dept_no string 
+from_date date
+to_date date
+
+DepartmentManager as DM
+-
+dept_no string PK FK >- DepartmentEmployeer.dept_no
+emp_no int
+from_date date
+to_date date
+
+Employees
+-
+emp_no int PK
+birth_date date
+first_name string
+last_name string
+gender string
+hire_date date
+
+Salaries
+-
+emp_no int PK FK >- Employees.emp_no
+salary int
+from_date date
+to_date date
+
+Titles
+-
+emp_no int PK FK >- Employees.emp_no
+title string
+from_date date
+to_date date
+
+# END
